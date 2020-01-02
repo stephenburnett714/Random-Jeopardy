@@ -60,13 +60,14 @@ You are **responsible** for scheduling time with your squad to seek approval for
 https://res.cloudinary.com/dkwosricc/image/upload/v1577998945/IMG_0148_o5wrhx.jpg
 
 ## Timeframes
-
-Psudocoding - 2.5 hours
-HTML - 1 hours
-Designing - 3 hours
-CSS - hours
-JavaScript 9 hours
-Testing/Debugging - 6 hours
+| Activity | Time 
+|---|---|
+| Psudocoding | 2.5 hours 
+| HTML | 1 hours
+| Designing | 3 hours
+| CSS | hours
+| JavaScript | 9 hours
+| Testing/Debugging | 6 hours
 
 
 
