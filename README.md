@@ -29,7 +29,8 @@ The functionality will then be divided into two separate lists: MPV and PostMVP.
 - Find and use external api 
 - Render questions on page
 - Allow user to type in answer
-- if answer is correct add the number of points for the question to total score and move on to next question. If incorect show the correct answer and move to the next question.
+- if answer is correct add the number of points for the question to total score and move on to next question. 
+- If answer is incorect show the correct answer and move to the next question.
 
 #### PostMVP 
 
