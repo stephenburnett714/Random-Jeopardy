@@ -48,10 +48,10 @@ You are **responsible** for scheduling time with your squad to seek approval for
 |---|---| ---|
 |Jan 2rd| Project Prompt | Incomplete
 |Jan 3rd| Wireframes / Priority Matrix / Functional Components | Incomplete
-|Jan 5th| HTML, CSS, Pseudocode | Incomplete
+|Jan 5th| Pseudocode, HTML, CSS | Incomplete
 |Jan 6th| JS | Incomplete
 |Jan 7th| Initial Clickable Model/Debugging  | Incomplete
-|Jan 8th| MVP | Incomplete
+|Jan 8th| MVP, more CSS and Animations| Incomplete
 |Jan 9th| Present | Incomplete
 
 ## Priority Matrix
