@@ -1,6 +1,21 @@
+
+
+h2 {
+    text-align: center
+}
+#score {
+    text-align: center
+}
+
 #question {
     height: 500px;
     width: 500px;
     font:25;
-
+    margin: 0 auto;
+    background-color: blue;
+    color: white;
 }
+
+/* body {
+    background-image: ;
+} */
