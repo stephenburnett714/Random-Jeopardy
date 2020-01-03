@@ -13,7 +13,10 @@ Create a game that gives you 3 randmon 100,200,300,400 and 500 point Jeopardy qu
 
 ## API and Data Sample
 
-http://jservice.io/
+link: http://jservice.io/
+
+https://res.cloudinary.com/dkwosricc/image/upload/v1577996958/Screen_Shot_2020-01-02_at_2.44.51_PM_sgcxqo.png
+
 
 
 ## Wireframes
@@ -30,13 +33,13 @@ The functionality will then be divided into two separate lists: MPV and PostMVP.
 - Render questions on page
 - Allow user to type in answer
 - if answer is correct add the number of points for the question to total score and move on to next question. 
-- If answer is incorect show the correct answer and move to the next question.
+- If answer is incorrect show the correct answer and move to the next question.
 
 #### PostMVP 
 
 - Animations
 - Add a random daily double question that doubles the score for that question.
-- Max time of one minute per question
+- Max time of 30 seconds per question
 
 
 ## Project Schedule
@@ -60,21 +63,6 @@ You are **responsible** for scheduling time with your squad to seek approval for
 https://res.cloudinary.com/dkwosricc/image/upload/v1577998945/IMG_0148_o5wrhx.jpg
 
 ## Timeframes
-| Activity | Time 
-|---|---|
-| Psudocoding | 2.5 hours 
-| HTML | 1 hours
-| Designing | 3 hours
-| CSS | hours
-| JavaScript | 9 hours
-| Testing/Debugging | 6 hours
-
-
-
-## API Data Sample
-
-https://res.cloudinary.com/dkwosricc/image/upload/v1577996958/Screen_Shot_2020-01-02_at_2.44.51_PM_sgcxqo.png
-
 
 Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe.
 
@@ -101,3 +89,23 @@ function reverse(string) {
 
 ## Change Log
  Use this section to document what changes were made and the reasoning behind those changes.  
+
+
+
+
+## Pseudocode
+
+HTML 3 buttons are need 
+New Game
+Skip
+Submit
+Form to input the answers
+Create a display for the question
+
+JS
+Bring in api
+Button 1 - (New Game) Will restart the game from question one and reset the score.
+Button 2 - (Skip) Will skip the current question will return the correct answer and reward zero points.
+Button 3 - (Submit) Will check to see if the answer in the textbox is equal to the correct answer. If the answer is correct a message will come up that says correct. The amount of points for the question will be added to the score and then the next question will be displayed.
+
+Create a loop for questions when question count reaches 15 end game dispay score and ask if the user wants to play again.
