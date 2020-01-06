@@ -27,7 +27,7 @@ h2 {
     width: 90%;
     font:25;
     margin: 0 auto;
-    background-color: blue;
+  background-color: #060ce9;
     color: white;
     text-align: center;
     border: black 1px solid;
@@ -58,7 +58,7 @@ h2 {
 
   .buttons {
     
-    background-color: blue;
+    background-color: #060ce9;
     border: black 5px;
     color: goldenrod;
     padding: 15px 32px;
@@ -71,7 +71,7 @@ h2 {
   }
 
   .buttonMouseOverColor {
-    color: blue;
+    color: #060ce9;
     background-color: goldenrod;
   }
 
@@ -92,7 +92,7 @@ h2 {
   }
 
   #submit {
-      background-color: blue;
+      background-color: #060ce9;
       color: goldenrod;
       border-radius: 4px;
       margin: 5px;
@@ -100,7 +100,16 @@ h2 {
   }
 
   #new-game:hover {
-    color: blue;
+    color: #060ce9;
     background-color: goldenrod;
+  }
 
+  #submit:hover {
+    color: #060ce9;
+    background-color: goldenrod;
+  }
+
+  #skip:hover {
+    color: #060ce9;
+    background-color: goldenrod;
   }

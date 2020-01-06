@@ -1,5 +1,5 @@
 // Global Variables
-const newGame = document.querySelector("#newGame")
+const newGame = document.querySelector("#new-game")
 const submit = document.querySelector("#submit")
 const score = document.querySelector("#score")
 const skip = document.querySelector("#skip")
@@ -66,6 +66,7 @@ let playGame = () => {
     setTimeout(appendValue, 1000)
     setTimeout(appendCategory, 1000)
     setTimeout(displayQuestion, 1000)
+    answerForm.value=''
     turn ++
     console.log(turn)
     }
@@ -74,10 +75,9 @@ let playGame = () => {
 
 //Skips question adds a number to turn
 skip.addEventListener("click", funtion = () => {
-    let correctAnswer = document.createElement('h1')
-    correctAnswer.innerHTML = `The correct answer is: ${currentAnswer}`
+    skippedAnswer.innerHTML = `The correct answer is ${currentAnswer}`
     question.innerHTML = ""
-    question.append(correctAnswer)
+    question.append(skippedAnswer)
     setTimeout(playGame,1000)
     
 })
@@ -152,28 +152,14 @@ function toTitleCase(str) {
 // Adding mouseovers to the Buttons
 
 // let buttonMouseOver = () => {
-//     let newGameButton = document.querySelector("#newGame")
-//     newGameButton.style.color = "purple"
+//     this.classList.add("buttonMouseOverColor");
 // }
-
-// let buttonMouseOut = () => {
-//     let newGameButton = document.querySelector("#newGame")
-//     newGameButton.style.color = "green"
-// }
-
 
 // newGame.addEventListener("mouseover", buttonMouseOver)
-// newGame.addEventListener("mouseout", buttonMouseOut)
-
-
 // submit.addEventListener("mouseover", buttonMouseOver)
 // skip.addEventListener("mouseover", buttonMouseOver)
 
 
-// newGame.mouseover = function () {
-//     this.classList.add("buttonMouseOverColor");
-// }
-// newGame.mouseout = function () {
-//     this.classList.add("button");
-// }
-
+newGame.hover = function () {
+    this.classList.add("buttonMouseOverColor");
+}
