@@ -7,14 +7,25 @@
     <link rel="stylesheet" href="../Jeopardy/style.css">
     <title>Jeopardy</title>
 </head>
+
 <body>
-    <button id="newGame">New Game</button>
-    <button id="skip">Skip</button>
-    <h2>Jeopardy</h2>
+    <div id="newSkip" class="container">
+        <button class= "buttons" id="new-game">NEW GAME</button>
+        <button class= "buttons" id="skip">SKIP</button>
+    </div>
+
+    <img src="Images/Jeopardy!_logo.png" alt="Jeopardy" class="title">
+
     <div id="score"></div>
-    <div id = "question"></div>
+    <div id="category">Category:</div>
+    <div id="value">Question Value:</div>
+    <div id="question"></div>
+
+    <div id="answerSubmit">
     <input type="text" name="answer" value="" placeholder="Answer" id="answer">
     <button id="submit">Submit</button>
+    </div>
+
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="../Jeopardy/script.js"></script>
