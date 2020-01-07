@@ -1,5 +1,7 @@
 
-
+h1 {
+  vertical-align: middle;
+}
 h2 {
     text-align: center;
 }
@@ -35,7 +37,10 @@ h2 {
     margin-bottom: center;
     border-radius: 4px;
     margin-bottom: 35px;
-    box-shadow: 10px 10px 5px black
+    box-shadow: 10px 10px 5px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #newSkip {
@@ -56,7 +61,6 @@ h2 {
 }
 
   .buttons {
-    
     background-color: #060ce9;
     border: black 5px;
     color: goldenrod;
@@ -128,10 +132,16 @@ h2 {
     margin-left: 100px;
     margin-right: 100px;
   }
+  p {
+    font-size: 65px;
+  }
 }
 
 @media only screen and (max-width: 950px) {
   #question {
     font-size: 15px;
+  }
+  p {
+    font-size: 50px;
   }
 }

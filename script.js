@@ -8,7 +8,7 @@ const question = document.querySelector("#question")
 const value = document.querySelector("#value")
 const category = document.querySelector("#category")
 
-
+let dailyDoubleSound = document.querySelector("#dailyDoubleSound")
 let currentQuestion
 let currentAnswer
 let currentValue
@@ -44,8 +44,9 @@ let displayCategory = () => {
     showCategory.innerHTML =`Category: <br><br> ${currentCategoryTitle.toUpperCase()}`
     question.innerHTML = ""
     question.append(showCategory)
-
 }
+
+
 // Daily Double
 let dailyDoubleNumber = Math.floor(Math.random() * 14) + 1
 
@@ -64,6 +65,7 @@ let playGame = () => {
     turn ++
     if (turn == dailyDoubleNumber) {
         let showDailyDouble = document.createElement('h1')
+        dailyDoubleSound.play()
         showDailyDouble.innerHTML = 'Daily Double!!'
         question.innerHTML = ""
 
@@ -92,6 +94,7 @@ let playGame = () => {
 
 let cancel = 0
 
+
 //Skips question
 skip.addEventListener("click", funtion = () => {
     
@@ -106,7 +109,6 @@ skip.addEventListener("click", funtion = () => {
         } else {
             playGame()
         }
-
         setTimeout(() => cancel = 0, 3000)
     }
 })
@@ -123,6 +125,7 @@ let startNewGame = () => {
 
 newGame.addEventListener("click", startNewGame)
 
+
 // Score
 score.innerHTML = `Score: $${points}`
 
@@ -130,6 +133,8 @@ score.innerHTML = `Score: $${points}`
 //check answerbox with actual answer gives score and checks if DD was correct
 let compareAnswer = () => {
     event.preventDefault()
+    if (cancel != 1) {
+    cancel = 1
     answerForm = document.querySelector("#answer")
     answer = answerForm.value
     cleanAnswer = currentAnswer.replace(/<\/?[^>]+(>|$)/g, "")
@@ -156,17 +161,20 @@ let compareAnswer = () => {
         question.innerHTML = ""
         question.append(actualAnswer)
         setTimeout(playGame,1500)
-    }end
+    }
+    setTimeout(() => cancel = 0, 4000)
+}
 }
 submit.addEventListener("click", compareAnswer)
 
 
 // endgame function
 let endGame = () => {
-    let end = document.createElement("h1")
-    end.innnerHTML = (`Congratulations Your Score Is: ${points}`)
-    question.innerHTML = ""
-    question.append(end.innerHTML)
+    let end = document.createElement('h1')
+
+    question.innerHTML = `
+    <p id='end-screen'>Congratulations <br> Your Score Is: $${points} </p>
+    `
     submit.classList.add("fin")
     skip.classList.add("fin")
 }
@@ -185,11 +193,13 @@ let appendValue = () => {
     value.append(`Question Value: $${currentValue}`)
 }
 
+
 // Appends value for the daily Double
 let appendValueDD = () => {
     value.innerHTML = ""
     value.append(`Daily Double Value: $${currentValue} X 2`)
 }
+
 
 // Uppercase function found on StackOverflow
 function toTitleCase(str) {
