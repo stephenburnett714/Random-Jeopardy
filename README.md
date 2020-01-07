@@ -68,13 +68,13 @@ Time frames are also key in the development cycle.  You have limited time to cod
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Psudocoding | H | 2.5hrs|  |  |
-| HTML | H | 1hrs|  |  |
-| Designing | M | 3hrs|  |  |
-| CSS | H | 8hrs| |  |
-| JavaScript/Animation | H | 9hrs|  |  |
-| Testing & Debugging | H | 6hrs|  |  |
-| Total | H | 29.5hrs|  |  |
+| Psudocoding | H | 2.5hrs| 1hr |  |
+| HTML | H | 1hrs| 1hr |  |
+| Designing | M | 3hrs| 2hrs |  |
+| CSS | H | 8hrs| 9hrs |  |
+| JavaScript/Animation | H | 9hrs| 10hrs |  |
+| Testing & Debugging | H | 6hrs| 4hrs |  |
+| Total | H | 29.5hrs| 27hrs |  |
 
 
 ## Code Snippet
@@ -90,7 +90,7 @@ function reverse(string) {
 ## Change Log
  Use this section to document what changes were made and the reasoning behind those changes.  
 
-
+Instead of choosing 3 random 100-500 questions. I picked 15 random questions for the payer to pick from.
 
 
 ## Pseudocode
