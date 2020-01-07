@@ -25,9 +25,8 @@ h2 {
 #question {
     height: 250px;
     width: 90%;
-    font:25;
     margin: 0 auto;
-  background-color: #060ce9;
+    background-color: #060ce9;
     color: white;
     text-align: center;
     border: black 1px solid;
@@ -113,3 +112,26 @@ h2 {
     color: #060ce9;
     background-color: goldenrod;
   }
+
+  .fin {
+    pointer-events: none;
+}
+
+
+@media only screen and (min-width: 950px) {
+  #question {
+    font-size: 20px;
+    height: 300px;
+    width: 70%;
+  }
+  #newSkip {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  #question {
+    font-size: 15px;
+  }
+}

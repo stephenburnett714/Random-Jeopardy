@@ -46,6 +46,9 @@ let displayCategory = () => {
     question.append(showCategory)
 
 }
+// Daily Double
+let dailyDoubleNumber = Math.floor(Math.random() * 14) + 1
+
 
 // Appends Question to DOM
 let displayQuestion = () => {
@@ -58,33 +61,61 @@ let displayQuestion = () => {
 
 //Playing though turn
 let playGame = () => {
-    if (turn == 15) {
+    turn ++
+    if (turn == dailyDoubleNumber) {
+        let showDailyDouble = document.createElement('h1')
+        showDailyDouble.innerHTML = 'Daily Double!!'
+        question.innerHTML = ""
+
+        question.append(showDailyDouble)
+        getInfo()
+        // setTimeout(displayCategory,1000)
+        setTimeout(appendValueDD, 1000)
+        setTimeout(appendCategory, 1000)
+        setTimeout(displayQuestion, 1000)
+
+        answerForm.value=''
+        console.log(turn)
+        console.log("dailyDouble")
+    } else if (turn == 16) {
         endGame()
     } else {
-    getInfo()
-    // setTimeout(displayCategory,1000)
-    setTimeout(appendValue, 1000)
-    setTimeout(appendCategory, 1000)
-    setTimeout(displayQuestion, 1000)
-    answerForm.value=''
-    turn ++
-    console.log(turn)
+        getInfo()
+        // setTimeout(displayCategory,1000)
+        setTimeout(appendValue, 1000)
+        setTimeout(appendCategory, 1000)
+        setTimeout(displayQuestion, 1000)
+        answerForm.value=''
+        console.log(turn)
     }
 }
 
+let cancel = 0
 
-//Skips question adds a number to turn
+//Skips question
 skip.addEventListener("click", funtion = () => {
-    skippedAnswer.innerHTML = `The correct answer is ${currentAnswer}`
-    question.innerHTML = ""
-    question.append(skippedAnswer)
-    setTimeout(playGame,1000)
     
+    if (cancel != 1) {
+        cancel = 1
+        let skippedAnswer = document.createElement('h1')
+        skippedAnswer.innerHTML = `The correct answer is ${currentAnswer}`
+        question.innerHTML = ""
+        question.append(skippedAnswer)
+        if(turn == 16) {
+            endGame()
+        } else {
+            playGame()
+        }
+
+        setTimeout(() => cancel = 0, 3000)
+    }
 })
 
 
 // New Game Fuction and event listener
 let startNewGame = () => {
+    submit.classList.remove("fin")
+    skip.classList.remove("fin")
     turn = 0
     points = 0
     playGame()
@@ -96,14 +127,22 @@ newGame.addEventListener("click", startNewGame)
 score.innerHTML = `Score: $${points}`
 
 
-//check answerbox with actual answer
+//check answerbox with actual answer gives score and checks if DD was correct
 let compareAnswer = () => {
     event.preventDefault()
     answerForm = document.querySelector("#answer")
     answer = answerForm.value
     cleanAnswer = currentAnswer.replace(/<\/?[^>]+(>|$)/g, "")
     yourCleanAnswer = answer.replace(/<\/?[^>]+(>|$)/g, "")
-    if (yourCleanAnswer.toLowerCase() == cleanAnswer.toLowerCase()) {
+    if (yourCleanAnswer.toLowerCase() == cleanAnswer.toLowerCase() && turn == dailyDoubleNumber) {
+        let dailyDouble = document.createElement('h1')
+        dailyDouble.innerHTML = "You got the Daily Double Correct!"
+        question.innerHTML = ""
+        question.append(dailyDouble)
+        points = points + currentValue * 2
+        score.innerHTML = `Score: ${points}`
+        setTimeout(playGame,1500)
+    }else if (yourCleanAnswer.toLowerCase() == cleanAnswer.toLowerCase() && turn != dailyDoubleNumber) {
         let yourCorrect = document.createElement('h1')
         yourCorrect.innerHTML = "Correct!"
         question.innerHTML = ""
@@ -117,15 +156,19 @@ let compareAnswer = () => {
         question.innerHTML = ""
         question.append(actualAnswer)
         setTimeout(playGame,1500)
-    }
+    }end
 }
 submit.addEventListener("click", compareAnswer)
 
 
 // endgame function
 let endGame = () => {
+    let end = document.createElement("h1")
+    end.innnerHTML = (`Congratulations Your Score Is: ${points}`)
     question.innerHTML = ""
-    question.append(`Congratulations Your Score Is: ${points}`)
+    question.append(end.innerHTML)
+    submit.classList.add("fin")
+    skip.classList.add("fin")
 }
 
 
@@ -142,6 +185,12 @@ let appendValue = () => {
     value.append(`Question Value: $${currentValue}`)
 }
 
+// Appends value for the daily Double
+let appendValueDD = () => {
+    value.innerHTML = ""
+    value.append(`Daily Double Value: $${currentValue} X 2`)
+}
+
 // Uppercase function found on StackOverflow
 function toTitleCase(str) {
     return str.replace(/\w\S*/g, function(txt){
@@ -149,17 +198,3 @@ function toTitleCase(str) {
     });
 }
 
-// Adding mouseovers to the Buttons
-
-// let buttonMouseOver = () => {
-//     this.classList.add("buttonMouseOverColor");
-// }
-
-// newGame.addEventListener("mouseover", buttonMouseOver)
-// submit.addEventListener("mouseover", buttonMouseOver)
-// skip.addEventListener("mouseover", buttonMouseOver)
-
-
-newGame.hover = function () {
-    this.classList.add("buttonMouseOverColor");
-}
