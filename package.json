@@ -1,0 +1,21 @@
+{
+  "name": "Jeopardy",
+  "version": "1.0.0",
+  "description": "Gives user Jeopardy Questions",
+  "main": "script.js",
+  "dependencies": {
+    "animate.css": "^3.7.2",
+    "popmotion": "^8.7.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.generalassemb.ly/sburnett1990/Jeopardy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

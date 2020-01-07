@@ -1,4 +1,5 @@
 // Global Variables
+const { tween, styler } = popmotion
 const newGame = document.querySelector("#new-game")
 const submit = document.querySelector("#submit")
 const score = document.querySelector("#score")
@@ -7,8 +8,9 @@ let answerForm = []
 const question = document.querySelector("#question")
 const value = document.querySelector("#value")
 const category = document.querySelector("#category")
+const dailyDoubleSound = document.querySelector("#dailyDoubleSound")
+const moveQuestionBox = popmotion.styler(document.querySelector("#question"))
 
-let dailyDoubleSound = document.querySelector("#dailyDoubleSound")
 let currentQuestion
 let currentAnswer
 let currentValue
@@ -16,6 +18,20 @@ let currentCategoryTitle
 let answer
 let turn = 0
 let points = 0
+
+
+//Animation for making the screen bigger
+let makeBig = () => {
+    popmotion.tween({
+        from: {
+            scale: .4
+        },
+        to: {
+            scale:1
+        },
+        duration: 1000
+    }).start(moveQuestionBox.set)
+}
 
 
 // Gets all the infomation for the question
@@ -37,6 +53,19 @@ async function getInfo() {
         currentCategoryTitle = getCategoryTitle
     })
 }
+
+let checkInfo = () => {
+    if (currentQuestion == null || currentQuestion == "" || currentCategoryTitle == null || currentCategoryTitle == "" || currentValue == 0 || currentValue == null || currentValue == "") {
+        getInfo()
+    }
+}
+
+let readyInfo = () => {
+    getInfo()
+    setTimeout(checkInfo, 333)
+    setTimeout(checkInfo, 666)
+}
+
 
 // Appends Category to DOM
 let displayCategory = () => {
@@ -65,16 +94,15 @@ let playGame = () => {
     turn ++
     if (turn == dailyDoubleNumber) {
         let showDailyDouble = document.createElement('h1')
-        dailyDoubleSound.play()
+        readyInfo()
+        setTimeout(dailyDoubleSound.play(),1000)
         showDailyDouble.innerHTML = 'Daily Double!!'
         question.innerHTML = ""
-
-        question.append(showDailyDouble)
-        getInfo()
-        // setTimeout(displayCategory,1000)
+        setTimeout(question.append(showDailyDouble),1000)
+        setTimeout(makeBig, 1000)
         setTimeout(appendValueDD, 1000)
         setTimeout(appendCategory, 1000)
-        setTimeout(displayQuestion, 1000)
+        setTimeout(displayQuestion, 2000)
 
         answerForm.value=''
         console.log(turn)
@@ -82,8 +110,8 @@ let playGame = () => {
     } else if (turn == 16) {
         endGame()
     } else {
-        getInfo()
-        // setTimeout(displayCategory,1000)
+        readyInfo()
+        setTimeout(makeBig, 1000)
         setTimeout(appendValue, 1000)
         setTimeout(appendCategory, 1000)
         setTimeout(displayQuestion, 1000)
