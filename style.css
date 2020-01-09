@@ -13,7 +13,7 @@ h2 {
     text-align: center;
     font-size: 32px;
     padding: 5px;
-    color: aliceblue;
+    color: goldenrod;
     text-shadow: 3px 6px 5px #000000;
 }
 
@@ -61,7 +61,7 @@ h2 {
 
 .title {
     display: block;
-    width: 50%;
+    width: 30%;
     height: auto; 
     margin: 0 auto;
   }
@@ -123,21 +123,25 @@ h2 {
   #new-game:hover {
     color: #060ce9;
     background-color: goldenrod;
+    transform: scale(1.15);
   }
 
   #submit:hover {
     color: #060ce9;
     background-color: goldenrod;
+    transform: scale(1.1);
   }
 
   #skip:hover {
     color: #060ce9;
     background-color: goldenrod;
+    transform: scale(1.15);
   }
 
   .fin {
     pointer-events: none;
 }
+
 
 
 @media only screen and (min-width: 950px) {
@@ -149,9 +153,23 @@ h2 {
   #newSkip {
     margin-left: 100px;
     margin-right: 100px;
+    margin-bottom: 0px;
   }
   p {
     font-size: 65px;
+  }
+  #value {
+    font-size: 26px;
+  }
+  #category {
+    font-size: 26px;
+  }
+  #heading {
+    display:flex;
+    flex-flow: column;
+  }
+  #img {
+    margin-top: -65px;
   }
 }
 
@@ -161,5 +179,14 @@ h2 {
   }
   p {
     font-size: 50px;
+  }
+  #value {
+    font-size: 26px;
+  }
+  #category {
+    font-size: 26px;
+  }
+  .title {
+    width: 65%
   }
 }

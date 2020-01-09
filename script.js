@@ -11,6 +11,7 @@ const category = document.querySelector("#category")
 const dailyDoubleSound = document.querySelector("#dailyDoubleSound")
 const moveQuestionBox = popmotion.styler(document.querySelector("#question"))
 
+
 let currentQuestion
 let currentAnswer
 let currentValue
@@ -20,8 +21,8 @@ let turn = 0
 let points = 0
 
 
-//Animation for making the screen bigger
-let makeBig = () => {
+//Animation for bringing in the quesion box
+let bringQuestion = () => {
     popmotion.tween({
         from: {
             scale: .4
@@ -32,6 +33,8 @@ let makeBig = () => {
         duration: 1000
     }).start(moveQuestionBox.set)
 }
+
+
 
 
 // Gets all the infomation for the question
@@ -99,7 +102,7 @@ let playGame = () => {
         showDailyDouble.innerHTML = 'Daily Double!!'
         question.innerHTML = ""
         setTimeout(question.append(showDailyDouble),1000)
-        setTimeout(makeBig, 1000)
+        setTimeout(bringQuestion, 1000)
         setTimeout(appendValueDD, 1000)
         setTimeout(appendCategory, 1000)
         setTimeout(displayQuestion, 2000)
@@ -111,7 +114,7 @@ let playGame = () => {
         endGame()
     } else {
         readyInfo()
-        setTimeout(makeBig, 1000)
+        setTimeout(bringQuestion, 1000)
         setTimeout(appendValue, 1000)
         setTimeout(appendCategory, 1000)
         setTimeout(displayQuestion, 1000)
