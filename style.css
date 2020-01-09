@@ -34,6 +34,15 @@ h2 {
     text-shadow: 3px 6px 5px #000000;
 }
 
+#question-number {
+  text-align: center;
+  font-size: 20px;
+  padding: 5px;
+  color: aliceblue;
+  text-shadow: 3px 6px 5px #000000;
+    font-size: 26px;
+}
+
 #question {
     height: 250px;
     width: 90%;
@@ -156,7 +165,7 @@ h2 {
     margin-bottom: 0px;
   }
   p {
-    font-size: 65px;
+    font-size: 55px;
   }
   #value {
     font-size: 26px;
@@ -164,6 +173,7 @@ h2 {
   #category {
     font-size: 26px;
   }
+  
   #heading {
     display:flex;
     flex-flow: column;
@@ -175,16 +185,19 @@ h2 {
 
 @media only screen and (max-width: 950px) {
   #question {
-    font-size: 15px;
+    font-size: 12px;
   }
   p {
-    font-size: 50px;
+    font-size: 35px;
   }
   #value {
-    font-size: 26px;
+    font-size: 22px;
   }
   #category {
-    font-size: 26px;
+    font-size: 22px;
+  }
+  #question-number {
+    font-size: 22px;
   }
   .title {
     width: 65%

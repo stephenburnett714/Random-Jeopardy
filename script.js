@@ -4,12 +4,14 @@ const newGame = document.querySelector("#new-game")
 const submit = document.querySelector("#submit")
 const score = document.querySelector("#score")
 const skip = document.querySelector("#skip")
+const questionNumber = document.querySelector("#question-number")
 let answerForm = []
 const question = document.querySelector("#question")
 const value = document.querySelector("#value")
 const category = document.querySelector("#category")
 const dailyDoubleSound = document.querySelector("#dailyDoubleSound")
 const moveQuestionBox = popmotion.styler(document.querySelector("#question"))
+
 
 
 let currentQuestion
@@ -19,6 +21,8 @@ let currentCategoryTitle
 let answer
 let turn = 0
 let points = 0
+let correct = 0
+let numberOfQuestions = 10
 
 
 //Animation for bringing in the quesion box
@@ -58,7 +62,15 @@ async function getInfo() {
 }
 
 let checkInfo = () => {
-    if (currentQuestion == null || currentQuestion == "" || currentCategoryTitle == null || currentCategoryTitle == "" || currentValue == 0 || currentValue == null || currentValue == "") {
+    if (currentQuestion == null 
+        || currentQuestion == ""
+        || currentQuestion.includes("heard")
+        || currentQuestion.includes("/")
+        || currentCategoryTitle == null 
+        || currentCategoryTitle == "" 
+        || currentValue == 0 
+        || currentValue == null 
+        || currentValue == "") {
         getInfo()
     }
 }
@@ -80,7 +92,7 @@ let displayCategory = () => {
 
 
 // Daily Double
-let dailyDoubleNumber = Math.floor(Math.random() * 14) + 1
+let dailyDoubleNumber = Math.floor(Math.random() * numberOfQuestions-1) + 1
 
 
 // Appends Question to DOM
@@ -104,18 +116,20 @@ let playGame = () => {
         setTimeout(question.append(showDailyDouble),1000)
         setTimeout(bringQuestion, 1000)
         setTimeout(appendValueDD, 1000)
+        setTimeout(appendQuestionNumber, 1000)
         setTimeout(appendCategory, 1000)
         setTimeout(displayQuestion, 2000)
 
         answerForm.value=''
         console.log(turn)
         console.log("dailyDouble")
-    } else if (turn == 16) {
+    } else if (turn == numberOfQuestions +1) {
         endGame()
     } else {
         readyInfo()
         setTimeout(bringQuestion, 1000)
         setTimeout(appendValue, 1000)
+        setTimeout(appendQuestionNumber, 1000)
         setTimeout(appendCategory, 1000)
         setTimeout(displayQuestion, 1000)
         answerForm.value=''
@@ -135,7 +149,7 @@ skip.addEventListener("click", funtion = () => {
         skippedAnswer.innerHTML = `The correct answer is ${currentAnswer}`
         question.innerHTML = ""
         question.append(skippedAnswer)
-        if(turn == 16) {
+        if(turn == numberOfQuestions+1) {
             endGame()
         } else {
             playGame()
@@ -177,6 +191,7 @@ let compareAnswer = () => {
         question.append(dailyDouble)
         points = points + currentValue * 2
         score.innerHTML = `Score: ${points}`
+        correct ++
         setTimeout(playGame,1500)
     }else if (yourCleanAnswer.toLowerCase() == cleanAnswer.toLowerCase() && turn != dailyDoubleNumber) {
         let yourCorrect = document.createElement('h1')
@@ -185,6 +200,7 @@ let compareAnswer = () => {
         question.append(yourCorrect)
         points = points + currentValue
         score.innerHTML = `Score: ${points}`
+        correct ++
         setTimeout(playGame,1500)
     } else {
         let actualAnswer = document.createElement('h1')
@@ -202,10 +218,27 @@ submit.addEventListener("click", compareAnswer)
 // endgame function
 let endGame = () => {
     let end = document.createElement('h1')
-
+if (correct/numberOfQuestions <= .25) {
     question.innerHTML = `
-    <p id='end-screen'>Congratulations <br> Your Score Is: $${points} </p>
+    <p id='end-screen'>Better Luck Next Time! <br> Your Score Is: $${points} <br> You got ${correct} out of ${numberOfQuestions}!</p>
     `
+}
+else if (correct/numberOfQuestions <= .5) {
+    question.innerHTML = `
+    <p id='end-screen'>Good Job! <br> Your Score Is: $${points} <br> You got ${correct} out of ${numberOfQuestions}!</p>
+    `
+}
+else if (correct/numberOfQuestions <= .75) {
+    question.innerHTML = `
+    <p id='end-screen'>Great Job! <br> Your Score Is: $${points} <br> You got ${correct} out of ${numberOfQuestions}!</p>
+    `  
+}
+else if (correct/numberOfQuestions <= 1) {
+    question.innerHTML = `
+    <p id='end-screen'>Amazing!! <br> Your Score Is: $${points} <br> You got ${correct} out of ${numberOfQuestions}!</p>
+    `
+    
+}
     submit.classList.add("fin")
     skip.classList.add("fin")
 }
@@ -229,6 +262,12 @@ let appendValue = () => {
 let appendValueDD = () => {
     value.innerHTML = ""
     value.append(`Daily Double Value: $${currentValue} X 2`)
+}
+
+//Appends question number
+let appendQuestionNumber = () => {
+    questionNumber.innerHTML = ""
+    questionNumber.append(`Question: ${turn} of ${numberOfQuestions}`)
 }
 
 

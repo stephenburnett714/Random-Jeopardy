@@ -50,12 +50,12 @@ You are **responsible** for scheduling time with your squad to seek approval for
 
 |  Day | Deliverable | Status
 |---|---| ---|
-|Jan 2rd| Project Prompt | Incomplete
-|Jan 3rd| Wireframes / Priority Matrix / Functional Components | Incomplete
-|Jan 5th| Pseudocode, HTML, CSS | Incomplete
-|Jan 6th| JS | Incomplete
-|Jan 7th| Initial Clickable Model/Debugging  | Incomplete
-|Jan 8th| MVP, more CSS and Animations| Incomplete
+|Jan 2rd| Project Prompt | Complete
+|Jan 3rd| Wireframes / Priority Matrix / Functional Components | Complete
+|Jan 5th| Pseudocode, HTML, CSS | Complete
+|Jan 6th| JS | Complete
+|Jan 7th| Initial Clickable Model/Debugging  | Complete
+|Jan 8th| MVP, more CSS and Animations| Complete
 |Jan 9th| Present | Incomplete
 
 ## Priority Matrix
@@ -70,11 +70,11 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | --- | :---: |  :---: | :---: | :---: |
 | Psudocoding | H | 2.5hrs| 1hr |  |
 | HTML | H | 1hrs| 1hr |  |
-| Designing | M | 3hrs| 2hrs |  |
-| CSS | H | 8hrs| 9hrs |  |
-| JavaScript/Animation | H | 9hrs| 10hrs |  |
-| Testing & Debugging | H | 6hrs| 4hrs |  |
-| Total | H | 29.5hrs| 27hrs |  |
+| Designing | M | 3hrs| 5hrs |  |
+| CSS | H | 8hrs| 11hrs |  |
+| JavaScript/Animation | H | 9hrs| 12hrs |  |
+| Testing & Debugging | H | 6hrs| 8hrs |  |
+| Total | H | 29.5hrs| 38hrs |  |
 
 
 ## Code Snippet
@@ -82,15 +82,49 @@ Time frames are also key in the development cycle.  You have limited time to cod
 Use this section to include a brief code snippet of functionality that you are proud of an a brief description  
 
 ```
-function reverse(string) {
-	// here is the code to reverse a string of text
+//check answerbox with actual answer gives score and checks if DD was correct
+let compareAnswer = () => {
+    event.preventDefault()
+    if (cancel != 1) {
+    cancel = 1
+    answerForm = document.querySelector("#answer")
+    answer = answerForm.value
+    cleanAnswer = currentAnswer.replace(/<\/?[^>]+(>|$)/g, "")
+    yourCleanAnswer = answer.replace(/<\/?[^>]+(>|$)/g, "")
+    if (yourCleanAnswer.toLowerCase() == cleanAnswer.toLowerCase() && turn == dailyDoubleNumber) {
+        let dailyDouble = document.createElement('h1')
+        dailyDouble.innerHTML = "You got the Daily Double Correct!"
+        question.innerHTML = ""
+        question.append(dailyDouble)
+        points = points + currentValue * 2
+        score.innerHTML = `Score: ${points}`
+        correct ++
+        setTimeout(playGame,1500)
+    }else if (yourCleanAnswer.toLowerCase() == cleanAnswer.toLowerCase() && turn != dailyDoubleNumber) {
+        let yourCorrect = document.createElement('h1')
+        yourCorrect.innerHTML = "Correct!"
+        question.innerHTML = ""
+        question.append(yourCorrect)
+        points = points + currentValue
+        score.innerHTML = `Score: ${points}`
+        correct ++
+        setTimeout(playGame,1500)
+    } else {
+        let actualAnswer = document.createElement('h1')
+        actualAnswer.innerHTML = (`Incorrect <br><br> Correct Answer: ${currentAnswer}`)
+        question.innerHTML = ""
+        question.append(actualAnswer)
+        setTimeout(playGame,1500)
+    }
+    setTimeout(() => cancel = 0, 4000)
+}
 }
 ```
 
 ## Change Log
  Use this section to document what changes were made and the reasoning behind those changes.  
 
-Instead of choosing 3 random 100-500 questions. I picked 15 random questions for the payer to pick from.
+Instead of choosing 3 random 100-500 questions. I picked 10 random questions for the payer to pick from.
 
 
 ## Pseudocode
