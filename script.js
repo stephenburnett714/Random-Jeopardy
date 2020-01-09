@@ -44,7 +44,7 @@ let bringQuestion = () => {
 // Gets all the infomation for the question
 async function getInfo() {
     //event.preventDefault()
-    let url = "http://jservice.io/api/random"
+    let url = "https://jservice.io/api/random"
     let data = axios.get(url).then(res => {
         const results = res.data[0];
         const getQuestion = results.question
