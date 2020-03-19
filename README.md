@@ -9,8 +9,7 @@ Jeopardy
 
 ## Project Description
 
-Create a game that gives you 3 randmon 100,200,300,400 and 500 point Jeopardy questions. Will get points untill all 15 questons are asked. Will have the ability to restart the game or skip questions at any time. A score out of 4500 will be given after the 15 questions are asked. 
-
+Created a game that gives you 10 random 100,200,300,400 and 500 point Jeopardy questions. Will get points until all 15 questons are asked. Will have the ability to restart the game or skip questions at any time.
 ## API and Data Sample
 
 link: http://jservice.io/
