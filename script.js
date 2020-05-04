@@ -1,9 +1,5 @@
 // Global Variables
-// const express = require('express')
-// const cors = require('cors')
-// const app = express()
 
-// app.use(cors())
 const { tween, styler } = popmotion
 const newGame = document.querySelector("#new-game")
 const submit = document.querySelector("#submit")
