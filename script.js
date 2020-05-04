@@ -1,4 +1,9 @@
 // Global Variables
+// const express = require('express')
+// const cors = require('cors')
+// const app = express()
+
+// app.use(cors())
 const { tween, styler } = popmotion
 const newGame = document.querySelector("#new-game")
 const submit = document.querySelector("#submit")
@@ -11,6 +16,10 @@ const value = document.querySelector("#value")
 const category = document.querySelector("#category")
 const dailyDoubleSound = document.querySelector("#dailyDoubleSound")
 const moveQuestionBox = popmotion.styler(document.querySelector("#question"))
+
+
+
+
 
 
 

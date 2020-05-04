@@ -125,7 +125,7 @@ h2 {
       border-radius: 4px;
       margin: 5px;
       height: 40px;
-      max-width: 80px;
+      min-width: 80px;
       font-size: 20px;
   }
 
