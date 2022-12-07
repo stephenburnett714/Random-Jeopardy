@@ -6,7 +6,7 @@
   "dependencies": {
     "animate.css": "^3.7.2",
     "cors": "^2.8.5",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "popmotion": "^8.7.1"
   },
   "devDependencies": {},
